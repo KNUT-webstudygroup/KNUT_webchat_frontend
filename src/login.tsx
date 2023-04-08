@@ -10,7 +10,7 @@ function login() {
 
   const onSubmit = async () => {
     console.log("로그인 시도 중...!");
-
+    console.log(isRealServer())
     await axios
       .post(`http://localhost:${port}/login`, {
         id: id,
@@ -33,7 +33,6 @@ function login() {
   return (
     <div>
       <div>
-        {isRealServer()}
         <span>아이디</span>
         <input onChange={(event) => setId(event.target.value)} value={id} />
       </div>
