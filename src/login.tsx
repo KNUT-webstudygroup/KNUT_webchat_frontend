@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import './logics'
+import isRealServer from './logics'
 
 const port = 4300;
 
