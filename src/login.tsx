@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import './logics'
 
 const port = 4300;
 
@@ -32,6 +33,7 @@ function login() {
   return (
     <div>
       <div>
+        {isRealServer()}
         <span>아이디</span>
         <input onChange={(event) => setId(event.target.value)} value={id} />
       </div>
