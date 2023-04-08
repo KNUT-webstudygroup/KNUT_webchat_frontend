@@ -31,8 +31,6 @@ function login() {
 
   return (
     <div>
-          {process.env.IS_REAL_SERVER}
-
       <div>
         <span>아이디</span>
         <input onChange={(event) => setId(event.target.value)} value={id} />
