@@ -30,6 +30,7 @@ function login() {
   };
 
   return (
+    {process.env.IS_REAL_SERVER}
     <div>
       <div>
         <span>아이디</span>
