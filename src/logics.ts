@@ -1,8 +1,8 @@
 
 /*
 @author : Lutica CANARD
-@description : Check connect of user is from real server.
-if this connection is from localhost, It should return false.
+@description : Check user connection is from real server.
+if user connection is from localhost, It should return false.
 */
 export default function isRealServer():boolean 
 {
