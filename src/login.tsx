@@ -8,9 +8,11 @@ function login() {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
 
-  const onSubmit = async () => {
+  const onSubmit = async (e:any|Event) => {
     console.log("로그인 시도 중...!");
     console.log(isRealServer())
+    e.stopPropagation();
+    e.preventDefault();
     await axios
       .post(`http://localhost:${port}/login`, {
         id: id,
@@ -30,17 +32,17 @@ function login() {
       });
   };
   return (
-    <div>
+    <form>
       <div>
         <span>아이디</span>
-        <input onChange={(event) => setId(event.target.value)} value={id} />
+        <input onChange={(event) => {setId(event.target.value);}} value={id} />
       </div>
       <div>
         <span>비밀번호</span>
         <input onChange={(event) => setPw(event.target.value)} value={pw} />
       </div>
       <button onClick={onSubmit}>로그인</button>
-    </div>
+    </form>
   );
 }
 
