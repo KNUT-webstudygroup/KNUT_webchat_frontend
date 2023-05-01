@@ -26,8 +26,8 @@ function login() {
     else if (!pw2){alert("Please enter your PW!")}
     await axios
    .post(`http://localhost:${port}/login`, {
-        id: id,
-        pw: pw,
+        id: id2,
+        pw: pw2,
       })
       .then((response) => {
         // id, pw 일치했다고 가정하고 true 받아옴
@@ -42,18 +42,19 @@ function login() {
         console.log(t('login:fail'))})
   };
   return (
-    <form>
-      <div>
+<form>
+    <div>
         <span>{t('login:ID')}</span>
-        <input onChange={(event) => {setId(event.target.value);}} value={id} />
+        <input ref={userid} value={id} tabIndex={1} placeholder="UserID" />
       </div>
       <div>
         <span>{t('login:PW')}</span>
-        <input onChange={(event) => setPw(event.target.value)} value={pw} />
+        <input ref={password} value={pw} type="password" tabIndex={2}  placeholder="Password"/>
       </div>
-      <button onClick={onSubmit}>{t('login:login')}</button>
-    </form>
-  );
+     <button onClick={onSubmit}>로그인</button>
+</form>
+    )
 }
+  
 
-export default login;
+export default login
