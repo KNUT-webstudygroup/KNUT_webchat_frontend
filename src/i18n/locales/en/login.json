@@ -1,0 +1,10 @@
+{
+    "tryinglogin" : "trying login...",
+    "suc" : "login successfully!",
+    "faildesc" : "login failed by your PW or ID isn't matching!",
+    "fail" : "login failed",
+    "ID":"ID",
+    "PW":"password",
+    "login":"login"
+
+}
