@@ -10,16 +10,22 @@ const port = 4300;
 function login() {
   
   const {t} = useTranslation(['login'])
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
-  
-  const onSubmit = async (e:any|Event) => {
+  const userid = useRef<HTMLInputElement>(null);
+  const password = useRef<HTMLInputElement>(null);
+  let id;
+  let pw;
+  const port = 3000;
+
+  const onSubmit = async (e:any) => {
+    e.preventDefault(); // form은 이벤트를 만나면 자돌으로 새로고침 하는 성질이 있어서 이걸 넣어줘야해요 !
     console.log(t('login:tryinglogin'));
     console.log(isRealServer())
-    e.stopPropagation();
-    e.preventDefault();
+    let id2 = userid?.current?.value
+    let pw2 = password?.current?.value
+    if (!id2){alert("Please enter your ID!")}
+    else if (!pw2){alert("Please enter your PW!")}
     await axios
-      .post(`http://localhost:${port}/login`, {
+   .post(`http://localhost:${port}/login`, {
         id: id,
         pw: pw,
       })
@@ -33,9 +39,7 @@ function login() {
         }
       })
       .catch((err) => {
-        console.log(t('login:fail') + err);
-      }); 
-      
+        console.log(t('login:fail'))})
   };
   return (
     <form>
