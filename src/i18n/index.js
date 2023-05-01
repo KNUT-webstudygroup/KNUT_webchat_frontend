@@ -1,7 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import en from './en';
-import ko from './ko';
+import en from './locales/en';
+import ko from './locales/ko';
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -13,7 +13,7 @@ i18n
         en:en,
         ko,ko
     },
-    lng: "en", // if you're using a language detector, do not define the lng option
+    lng: navigator.language=='ko'?'ko':'en', // if you're using a language detector, do not define the lng option
     fallbackLng: "en",
     ns:['page','login'], // 파일 추가시 사용
     interpolation: {
