@@ -22,8 +22,8 @@ function login() {
     console.log(isRealServer())
     let id2 = userid?.current?.value
     let pw2 = password?.current?.value
-    if (!id2){alert("Please enter your ID!")}
-    else if (!pw2){alert("Please enter your PW!")}
+    if      (!id2)alert("Please enter your ID!")
+    else if (!pw2)alert("Please enter your PW!")
     await axios
    .post(`http://localhost:${port}/login`, {
         id: id2,
