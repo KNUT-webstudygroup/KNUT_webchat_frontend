@@ -8,7 +8,6 @@ import i18n from "i18next";
 const port = 4300;
 
 function login() {
-  
   const {t} = useTranslation(['login'])
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
