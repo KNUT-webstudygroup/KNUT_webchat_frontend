@@ -39,7 +39,7 @@ function login() {
         }
       })
       .catch((err) => {
-        console.log(t('login:fail'))
+        console.log(t('login:fail')+':'+err)
       }
     )
   };
