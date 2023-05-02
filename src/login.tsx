@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import axios from "axios";
 import isRealServer from './logics'
 import { useTranslation } from 'react-i18next'
@@ -39,21 +39,24 @@ function login() {
         }
       })
       .catch((err) => {
-        console.log(t('login:fail'))})
-  };
-  return (
-<form>
-    <div>
-        <span>{t('login:ID')}</span>
-        <input ref={userid} value={id} tabIndex={1} placeholder="UserID" />
-      </div>
-      <div>
-        <span>{t('login:PW')}</span>
-        <input ref={password} value={pw} type="password" tabIndex={2}  placeholder="Password"/>
-      </div>
-     <button onClick={onSubmit}>로그인</button>
-</form>
+        console.log(t('login:fail'))
+      }
     )
+  };
+  
+  return (
+    <form>
+        <div>
+            <span>{t('login:ID')}</span>
+            <input ref={userid} value={id} tabIndex={1} placeholder={t('login:ID').toString()} />
+          </div>
+          <div>
+            <span>{t('login:PW')}</span>
+            <input ref={password} value={pw} type="password" tabIndex={2}  placeholder={t('login:PW').toString()}/>
+          </div>
+        <button onClick={onSubmit}>{t('login:ID')}</button>
+    </form>
+  )
 }
   
 
