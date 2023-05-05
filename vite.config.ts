@@ -3,9 +3,10 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  //plugins: [react()],
+//  plugins: [react()],
   build:{
     outDir:'docs'
   },
-  base:"/KNUT_webchat_frontend"
+  base: "/KNUT_webchat_frontend"
 })
+
