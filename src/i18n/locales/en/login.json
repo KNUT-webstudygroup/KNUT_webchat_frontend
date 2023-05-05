@@ -5,6 +5,8 @@
     "fail" : "login failed",
     "ID":"ID",
     "PW":"password",
-    "login":"login"
+    "login":"login",
+    "Signup":"sign up",
+    "Email":"Email"
 
 }

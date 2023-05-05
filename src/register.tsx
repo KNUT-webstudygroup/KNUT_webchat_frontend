@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import axios from "axios";
+import { useTranslation } from 'react-i18next'
+
 
 function register() {
+  const {t} = useTranslation(['login'])
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,31 +23,51 @@ function register() {
         id,
         pw
       })
+    }).then(response =>{ //쿠키에, 상태를 저장하고, 다른페이지로 이동하라.
+      let res = response.json()
+
     })
   }
   return (
-    <div>
-      <h1>Sign_Up</h1>
+    <div className='registerWarp'>
+      
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Id:
-            <input type="text" name="userid" value={username} onChange={(e) => setUsername(e.target.value)} />
-          </label>
+        <div className='registerbox'>
+          <div className='registerboxinner'>
+            <div className='register_first_component_etc'>
+              <h1>{t('login:Signup')}</h1>
+            </div>
+            <div className='register_inputfield'>
+              <div className='register_first_component'>
+                <div className='register_second_component'>
+                  <label>
+                  {t('login:ID')} 
+                  </label>
+                </div>
+                <input type="text" name="userid" value={username} onChange={(e) => setUsername(e.target.value)} />
+              </div>
+              <div className='register_first_component'>
+                <div className='register_second_component'>
+                  <label>
+                  {t('login:Email')}
+                  </label>
+                </div>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              </div>
+              <div className='register_first_component'>
+                <div className='register_second_component'>
+                  <label>
+                  {t('login:PW')}
+                  </label>
+                </div>
+                <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              </div>
+            </div>
+            <div className='register_first_component_etc'>
+              <button type="submit">{t('login:Signup')}</button>
+            </div>
+          </div>
         </div>
-        <div>
-          <label>
-            Email:
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password:
-            <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          </label>
-        </div>
-        <button type="submit">Sign Up</button>
       </form>
     </div>
   );
