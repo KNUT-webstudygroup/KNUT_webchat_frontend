@@ -7,6 +7,13 @@ import Login from './login'
 import Register from './register'
 import MainPage from './mainapp/main';
 import SettingPage from './Setting/setting';
+import {
+	RecoilRoot,
+	atom,
+	selector,
+	useRecoilState,
+	useRecoilValue,
+  } from 'recoil';
 
 
 function App() {
@@ -14,15 +21,17 @@ function App() {
 	const fronturi = 'KNUT_webchat_frontend'
 	return (
 		<div className='App'>
-			<BrowserRouter>
-				<Routes>
-					<Route path={fronturi + "/login"} element={<Login />}></Route>
-					<Route path={fronturi + "/regist/"} element={<Register />}></Route>
-					<Route path={fronturi + "/"}element={<MainPage />}></Route>
-					<Route path={fronturi + "/setting/"}element={<SettingPage/>}></Route>
-					<Route path="*" element={<MainPage />}></Route>
-				</Routes>
-			</BrowserRouter>
+			<RecoilRoot>
+				<BrowserRouter>
+					<Routes>
+						<Route path={fronturi + "/login"} element={<Login />}></Route>
+						<Route path={fronturi + "/regist/"} element={<Register />}></Route>
+						<Route path={fronturi + "/"}element={<MainPage />}></Route>
+						<Route path={fronturi + "/setting/"}element={<SettingPage/>}></Route>
+						<Route path="*" element={<MainPage />}></Route>
+					</Routes>
+				</BrowserRouter>
+			</RecoilRoot>
 		</div>
 	)
 }
