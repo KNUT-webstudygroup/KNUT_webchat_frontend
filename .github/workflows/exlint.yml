@@ -1,7 +1,7 @@
 name: reviewdog
 on:
   pull_request:
-    branches: ["worker/**"]
+    branches: ["master"]
 jobs:
   prettier:
     name: prettier
