@@ -13,6 +13,7 @@ function register() {
     const port = 4300;
     e.preventDefault();
     const id = e.currentTarget.userid.value;
+    const email = e.currentTarget.email.value;
     const pw = e.currentTarget.password.value;
     fetch(`http://localhost:${port}/regist`, {
       method: 'POST',
@@ -21,6 +22,7 @@ function register() {
       },
       body: JSON.stringify({
         id,
+        email,
         pw
       })
     }).then(response =>{ //쿠키에, 상태를 저장하고, 다른페이지로 이동하라.
@@ -52,7 +54,7 @@ function register() {
                   {t('login:Email')}
                   </label>
                 </div>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className='register_first_component'>
                 <div className='register_second_component'>
