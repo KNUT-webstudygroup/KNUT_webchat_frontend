@@ -3,12 +3,15 @@ import axios from "axios";
 import isRealServer from './logics'
 import { useTranslation } from 'react-i18next'
 import i18n from "i18next";
-import { Link } from "react-router-dom";
-
+import { Link,Navigate } from "react-router-dom";
+import cookie from 'react-cookies';
 
 const port = 4300;
 
 function login() {
+  if(cookie.load("uuid")) return(
+    <Navigate to={"/KNUT_webchat_frontend/"}></Navigate >
+  )
   const {t} = useTranslation(['login']) // t는 번역을 위한 함수(i18n 폴더에 en/ko ver. 문구 정리되어 있음!)
   const userid = useRef<HTMLInputElement>(null); // ref={userid}인 html input 요소 참조함
   const password = useRef<HTMLInputElement>(null); // ref={password}인 html input 요소 참조함
