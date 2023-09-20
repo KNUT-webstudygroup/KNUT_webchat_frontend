@@ -40,8 +40,10 @@ function login() {
         if (response.data.result === true) { // 로그인 성공
           console.log(response.data);
 					console.log(t('login:suc'));
-
-          cookie.save('logined','true',{});
+          const maxAge = 1000;
+          cookie.save('logined','true',{maxAge,
+            expires: new Date(Date.now() + maxAge * 1000),
+  });
           window.location.href = '/'
         } else { // ID or PW가 일치하지 않아 로그인 실패
           console.log(t('login:faildesc'));
